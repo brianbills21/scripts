@@ -1,5 +1,5 @@
 user="bbills"
-password="2421Mission!"
+password="*********"
 server=$1
 parameter="StrictHostKeyChecking no"
 key="/home/brian.bills/expect_project/authorized_keys"
