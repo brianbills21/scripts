@@ -1,6 +1,6 @@
 host=$1
 user=bbills
-password=2421Mission!
+password=********
 su-root()
 {
 expect <<EOD
