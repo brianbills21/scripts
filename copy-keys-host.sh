@@ -1,6 +1,6 @@
 key="/home/brian.bills/.ssh/id_rsa.pub"
 user="bbills"
-password="2421Mission!"
+password="******"
 server=$1
 parameter="StrictHostKeyChecking no"
 
