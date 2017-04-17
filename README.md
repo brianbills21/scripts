@@ -17,3 +17,5 @@ top_5.sh
 vmware-tools.sh
 vmwareupdate.sh
 weekly_email_workspace_report.sh
+mentor-halt-systems.sh
+devops_lsof.sh
