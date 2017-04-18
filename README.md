@@ -14,8 +14,8 @@ scan_host_type.sh
 scan_subnet_hosts.sh  
 splitaddagent.sh  
 top_5.sh  
-vmware-tools.sh  
-vmwareupdate.sh  
+centos7-vmware-tools.sh  
+ubuntu1604-vmwareupdate.sh  
 weekly_email_workspace_report.sh  
 mentor-halt-systems.sh  
 devops_lsof.sh  
