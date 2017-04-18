@@ -5,7 +5,7 @@ copy-keys-host.sh
 copy-keys-root.sh  
 email.sh  
 first-login.sh  
-host-octet-mac.sh  
+centos7-host-octet-mac.sh  
 install-tools.sh  
 ituser.sh  
 report6.sh  
