@@ -17,7 +17,9 @@ for v in "${WORKSPACES[@]}"
 do
 echo "Top 5 consumers on workspace $v" >> $OUTPUT_DIR/"$HOSTNAME"_top_5_per_workspace_$TODAY.csv
 echo ",,," >> $OUTPUT_DIR/"$HOSTNAME"_top_5_per_workspace_$TODAY.csv
-find $BASE/$v -printf "%u  %s\n" | awk '{user[$1]+=$2}; END{ for(i in user)if(i !~ "root" && i !~ /^[0-9]+$/ && i !~ /^ [0-9]+$/)printf("%s,%.2f,GB\n",i,user[i]/2**30)}' | sort -t, -k+2 -n -r | head -5 >> $OUTPUT_DIR/"$HOSTNAME"_top_5_per_workspace_$TODAY.csv
+find $BASE/$v -printf "%u  %s\n" | awk '{user[$1]+=$2}; \
+END{ for(i in user)if(i !~ "root" && i !~ /^[0-9]+$/ && i !~ /^ [0-9]+$/)printf("%s,%.2f,GB\n",i,user[i]/2**30)}' \
+| sort -t, -k+2 -n -r | head -5 >> $OUTPUT_DIR/"$HOSTNAME"_top_5_per_workspace_$TODAY.csv
 echo ",,," >> $OUTPUT_DIR/"$HOSTNAME"_top_5_per_workspace_$TODAY.csv
 done
 fi
