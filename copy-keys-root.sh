@@ -84,7 +84,10 @@ expect {
         }
   }
 }
-send  "mkdir -p /home/bbills/.ssh && mkdir -p /root/.ssh && cp /home/bbills/authorized_keys /root/.ssh && cp /home/bbills/authorized_keys /home/bbills/.ssh && chown -R bbills:bbills /home/bbills/.ssh && /bin/sed -i 's/PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config && chown -R root:root /root/.ssh && sudo systemctl restart sshd\r"
+send  "mkdir -p /home/bbills/.ssh && mkdir -p /root/.ssh && cp /home/bbills/authorized_keys \
+/root/.ssh && cp /home/bbills/authorized_keys /home/bbills/.ssh && chown -R bbills:bbills \
+/home/bbills/.ssh && /bin/sed -i 's/PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config \
+&& chown -R root:root /root/.ssh && sudo systemctl restart sshd\r"
 
 expect {
     "> " {}
