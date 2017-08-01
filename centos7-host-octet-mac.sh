@@ -1,24 +1,26 @@
-#$1 hostname $2 last octet $3 MAC Address
+#$1 hostname $2 MAC Address
 set -x
 zroot="/var/named"
 subnet="192.168.134"
 domain="mj12net.local."
 dhcp="/etc/dhcp/dhcpd.conf"
+ip="$(sort -t . -k 3,3n -k 4,4n /var/named/mj12net.local.db | tail -1 | awk '{print $4}' | cut -d. -f4)"
+octet=$((ip+1))
 
 systemctl stop dhcpd
 echo "host "$1" {" >> $dhcp
-echo "  hardware ethernet "$3";" >> $dhcp
+echo "  hardware ethernet "$2";" >> $dhcp
 echo "  option domain-name \"mj12net.local\";" >> $dhcp
 echo "  option host-name \"$1\";" >> $dhcp
-echo "  fixed-address "$subnet"."$2";" >> $dhcp 
+echo "  fixed-address "$subnet"."$octet";" >> $dhcp 
 echo "}" >> $dhcp
 systemctl start dhcpd
 
 cat $dhcp
 
 systemctl stop named
-echo $1"	IN	A	"$subnet"."$2 >> $zroot/mj12net.local.db
-echo $2"     IN      PTR     "$1"."$domain"   	; "$subnet"."$2 >> $zroot/$subnet.db
+echo $1"        IN      A       "$subnet"."$octet >> $zroot/mj12net.local.db
+echo $octet"     IN      PTR     "$1"."$domain"         ; "$subnet"."$octet >> $zroot/$subnet.db
 
 ZONES_PATH="/var/named"
 DATE=$(date +%Y%m%d)
