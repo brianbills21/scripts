@@ -4,19 +4,21 @@ zroot="/etc/bind/zones"
 subnet="192.168.134"
 domain="mj12net.local."
 dhcp="/etc/dhcp/dhcpd.conf"
+ip="$(sort -t . -k 3,3n -k 4,4n /etc/bind/zones/db.mj12net.local | tail -1 | awk '{print $4}' | cut -d. -f4)"
+octet=$((ip+1))
 
 systemctl stop isc-dhcp-server
 echo "host "$1" {" >> $dhcp
-echo "  hardware ethernet "$3";" >> $dhcp
-echo "  fixed-address "$subnet"."$2";" >> $dhcp 
+echo "  hardware ethernet "$2";" >> $dhcp
+echo "  fixed-address "$subnet"."$octet";" >> $dhcp 
 echo "}" >> $dhcp
 systemctl start isc-dhcp-server
 
 cat $dhcp
 
 sudo /etc/init.d/bind9 stop
-echo $1"	IN	A	"$subnet"."$2 >> $zroot/db.mj12net.local
-echo $2"     IN      PTR     "$1"."$domain"   	; "$subnet"."$2 >> $zroot/db.$subnet
+echo $1"        IN      A       "$subnet"."$octet >> $zroot/db.mj12net.local
+echo $octet"     IN      PTR     "$1"."$domain"         ; "$subnet"."$octet >> $zroot/db.$subnet
 
 ZONES_PATH="/etc/bind/zones"
 DATE=$(date +%Y%m%d)
@@ -76,3 +78,5 @@ date
 
 # Long listing of files in $dest to check file sizes.
 ls -lh $dest
+
+ps -ef | grep dhcpd && ps -ef | grep named
