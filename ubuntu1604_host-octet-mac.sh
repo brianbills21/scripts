@@ -1,4 +1,4 @@
-#$1 hostname $2 last octet $3 MAC Address
+#$1 hostname $2 MAC Address
 set -x
 zroot="/etc/bind/zones"
 subnet="192.168.134"
