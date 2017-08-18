@@ -9,7 +9,6 @@
  devops_lsof.sh  
  email.sh  
  first-login.sh
- install_splunk.sh
  install-tools.sh  
  ituser.sh  
  make_box.sh  
@@ -24,3 +23,4 @@
  ubuntu1604_backout.sh  
  ubuntu1604_host-octet-mac.sh  
  weekly_email_workspace_report.sh  
+ install_splunk.sh
