@@ -8,7 +8,8 @@ copy-keys-host.sh
 copy-keys-root.sh  
 devops_lsof.sh  
 email.sh  
-first-login.sh  
+first-login.sh
+install_splunk.sh
 install-tools.sh  
 ituser.sh  
 make_box.sh  
