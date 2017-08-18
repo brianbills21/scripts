@@ -9,8 +9,8 @@
  devops_lsof.sh  
  email.sh  
  first-login.sh
- install_splunk.sh
- install-tools.sh  
+  install_splunk.sh
+  install-tools.sh  
  ituser.sh  
  make_box.sh  
  mentor-halt-systems.sh  
