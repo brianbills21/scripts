@@ -1,26 +1,26 @@
 # scripts
-README.md  
-bbdailyclients.sh  
-centos7-backout.sh  
-centos7-host-octet-mac.sh  
-centos7-vmware-tools.sh  
-copy-keys-host.sh  
-copy-keys-root.sh  
-devops_lsof.sh  
-email.sh  
-first-login.sh
-install_splunk.sh
-install-tools.sh  
-ituser.sh  
-make_box.sh  
-mentor-halt-systems.sh  
-report6.sh  
-run.sh  
-scan_host_type.sh  
-scan_subnet_hosts.sh  
-splitaddagent.sh  
-top_5.sh  
-ubuntu1604-vmwareupdate.sh  
-ubuntu1604_backout.sh  
-ubuntu1604_host-octet-mac.sh  
-weekly_email_workspace_report.sh  
+ README.md  
+ bbdailyclients.sh  
+ centos7-backout.sh  
+ centos7-host-octet-mac.sh  
+ centos7-vmware-tools.sh  
+ copy-keys-host.sh  
+ copy-keys-root.sh  
+ devops_lsof.sh  
+ email.sh  
+ first-login.sh
+ install_splunk.sh
+ install-tools.sh  
+ ituser.sh  
+ make_box.sh  
+ mentor-halt-systems.sh  
+ report6.sh  
+ run.sh  
+ scan_host_type.sh  
+ scan_subnet_hosts.sh  
+ splitaddagent.sh  
+ top_5.sh  
+ ubuntu1604-vmwareupdate.sh  
+ ubuntu1604_backout.sh  
+ ubuntu1604_host-octet-mac.sh  
+ weekly_email_workspace_report.sh  
