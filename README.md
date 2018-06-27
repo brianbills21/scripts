@@ -21,7 +21,7 @@
  top_5.sh  
  ubuntu1604-vmwareupdate.sh  
  ubuntu1604_backout.sh  
- ubuntu1604_firstrun.sh 
+ ubuntu1604_firstrun.sh  
  ubuntu1604_host-octet-mac.sh  
  weekly_email_workspace_report.sh  
  install_splunk.sh
