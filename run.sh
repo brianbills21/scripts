@@ -1,4 +1,3 @@
-bbills@ns:~$ cat /var/www/html/run.sh
 #!/bin/bash
 
 /usr/bin/apt-get install -y curl && /usr/bin/apt-get install -y openssh-server && /usr/bin/apt-get install -y wget
