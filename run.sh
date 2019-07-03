@@ -1,3 +1,12 @@
+#Installs Ubuntu 16.04 LTS initially, then upgrades it to 18.04.2 at the current time, 
+#but will upgrade it to newer versions depending on when you run the install. Make sure that you get the initrd.gz and the linux files
+#from here:
+
+#sudo wget http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/initrd.gz
+#sudo wget http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/linux
+
+#or the install will hang. 
+
 #!/bin/bash
 
 /usr/bin/apt-get install -y curl && /usr/bin/apt-get install -y openssh-server && /usr/bin/apt-get install -y wget
@@ -10,9 +19,9 @@ apt-get update
 
 /usr/bin/apt-get install -y puppet-agent
 
-/usr/bin/apt-get update && /usr/bin/apt-get -y upgrade && /usr/bin/apt-get -y dist-upgrade
+/usr/bin/apt update && /usr/bin/apt -y upgrade && /usr/bin/apt install ubuntu-release-upgrader-core && /usr/bin/apt -y update && do-release-upgrade -d -f DistUpgradeViewNonInteractive
 
-/usr/bin/apt-get install -y ntp ntpdate && /usr/bin/ntpdate -u 0.ubuntu.pool.ntp.org && /usr/bin/timedatectl set-timezone America/Los_Angeles
+/usr/bin/apt install -y ntp ntpdate && /usr/bin/ntpdate -u 0.ubuntu.pool.ntp.org && /usr/bin/timedatectl set-timezone America/Los_Angeles
 
 /bin/mkdir -p /root/.ssh
 /bin/mkdir -p /home/bbills/.ssh
@@ -38,9 +47,3 @@ sed -i "s/certname = puppet-agent/certname = "$host_name"/g" /etc/puppetlabs/pup
 sudo /opt/puppetlabs/bin/puppet agent --test
 
 /usr/bin/apt-get install -y open-vm-tools
-
-#/usr/bin/curl -o /tmp/VMwareTools-10.0.10-4301679.tar.gz http://192.168.134.3/vmware/VMwareTools-10.0.10-4301679.tar.gz
-#cd /tmp
-#/bin/tar xzvf VMwareTools-10.0.10-4301679.tar.gz
-#/bin/chmod +x /tmp/vmware-tools-distrib/vmware-install.real.pl
-#/tmp/vmware-tools-distrib/vmware-install.real.pl
