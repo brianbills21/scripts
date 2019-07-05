@@ -7,7 +7,6 @@
  centos7-install-vmware-tools.sh  
  centos7-provision-new-kickstart-host.sh  
  disk-space-usage-email.sh  
- install-tools.sh  
  ituser.sh  
  make_box.sh  
  mentor-halt-systems.sh 
