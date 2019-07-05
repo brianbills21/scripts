@@ -1,8 +1,10 @@
-#This is an unsafe script if used in an environment where somebody unauthorized can ngrep
-#your packets, or from a console on the same machine can type ps -ef | grep first-login.sh
-#This script accepts the digital fingerprint automagically so you don't have to.
-#It's a nice feature used in a loop or from an ansible playbook when you have just built
-#many new hosts and you don't want to do it manually on every single one.
+#############################################################################################
+# This is an unsafe script if used in an environment where somebody unauthorized can ngrep  #
+# your packets, or from a console on the same machine can type ps -ef | grep first-login.sh #
+# This script accepts the digital fingerprint automagically so you don't have to.           #
+# It's a nice feature used in a loop or from an ansible playbook when you have just built   #
+# many new hosts and you don't want to do it manually on every single one.                  #
+#############################################################################################
 
 user="root"
 server=$1
