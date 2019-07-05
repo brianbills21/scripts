@@ -19,6 +19,7 @@
  scan_subnet_hosts.sh  
  splitaddagent.sh  
  top_5.sh  
+ ubuntu-preseed-post-install-script.sh   
  ubuntu1604-vmwareupdate.sh  
  ubuntu1604_backout.sh  
  ubuntu1604_firstrun.sh  
