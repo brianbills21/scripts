@@ -2,9 +2,9 @@
  README.md  
  accept-digital-fingerprint.sh  
  centos7-backout-kickstart-host.sh  
- centos7-provision-new-kickstart-host.sh  
  centos7-vmware-tools.sh  
- copy-keys-host.sh  
+ centos7-provision-new-kickstart-host.sh  
+  copy-keys-host.sh  
  copy-keys-root.sh  
  devops_lsof.sh  
  email.sh  
@@ -24,4 +24,4 @@
  ubuntu1604_firstrun.sh  
  ubuntu1604_host-octet-mac.sh  
  weekly_email_workspace_report.sh  
- install_splunk.sh
+ install_splunk.sh   
