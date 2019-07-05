@@ -6,7 +6,7 @@
  centos7-backout-kickstart-host.sh  
  centos7-install-vmware-tools.sh  
  centos7-provision-new-kickstart-host.sh  
- email.sh  
+ disk-space-usage-email.sh  
  install-tools.sh  
  ituser.sh  
  make_box.sh  
