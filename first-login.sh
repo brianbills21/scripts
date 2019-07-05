@@ -1,3 +1,5 @@
+#Unsafe scrip if used in an environment where somebody unauthorized can sniff
+#from a console on the same machine can type ps -ef | grep first-login.sh
 user="root"
 server=$1
 
