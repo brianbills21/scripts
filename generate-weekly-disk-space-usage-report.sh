@@ -28,7 +28,7 @@ echo ",,,,,100GB+ Consumers on All Hosts/Workspaces" >> "$OUTPUTDIR"/weekly_work
 echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
 echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
 
-# Process the output data from disk-usage-JM.pl in the file jm_output, and print it here.
+# Process the output data from disk-usage-JM.pl in the file jm_output, and print it here
 awk '!/^ / {sub(":","",$1); name=$1; next} NF==3{a[name]+=$2} END {for (i in a) printf "%s,%5.2f,GB\n", i, a[i]/1024}' "$OUTPUTDIR"/jm_output | sort -t, -rnk2 | awk -F, '$2+0>100' >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
 
 # Add two more blank lines
