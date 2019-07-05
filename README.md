@@ -1,7 +1,7 @@
 # scripts
- README.md 
- accept-digital-fingerprint.sh
-  centos7-backout.sh  
+ README.md  
+ accept-digital-fingerprint.sh  
+ centos7-backout.sh  
  centos7-host-octet-mac.sh  
  centos7-vmware-tools.sh  
  copy-keys-host.sh  
