@@ -1,3 +1,10 @@
+#This script monitors webwasher proxy logs from two hosts:
+
+#modpxy007
+#modpxy008
+
+to determine which hosts have yet to be migrated from McAfee to Cylance.
+
 #!/bin/bash
 TODAY=`date +"%y%m%d"`
 set -x
