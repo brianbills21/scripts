@@ -1,7 +1,7 @@
 # scripts
  README.md  
  accept-digital-fingerprint.sh  
- copy-keys-host.sh  
+ auto-copy-rsa-keys.sh  
  centos7-backout-kickstart-host.sh  
  centos7-install-vmware-tools.sh  
  centos7-provision-new-kickstart-host.sh  
