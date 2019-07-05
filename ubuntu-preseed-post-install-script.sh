@@ -1,11 +1,15 @@
-#Installs Ubuntu 16.04 LTS initially, then upgrades it to 18.04.2 and it will upgrade it to newer versions 
-#depending on when you run the install. Make sure that you get the initrd.gz and the linux files
-#from here:
-
-#sudo wget http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/initrd.gz
-#sudo wget http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/linux
-
-#or the install will hang. 
+#################################################################################################################
+# Installs Ubuntu 16.04 LTS initially, then upgrades it to 18.04.2 and it will upgrade it to newer versions     #
+# depending on when you run the install. Make sure that you get the initrd.gz and the linux files               #
+# from here:                                                                                                    #
+#                                                                                                               #
+# sudo wget http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot \ #
+# /ubuntu-installer/amd64/initrd.gz                                                                             #
+# sudo wget http://archive.ubuntu.com/ubuntu/dists/xenial-updates/main/installer-amd64/current/images/netboot \ #
+# @ /ubuntu-installer/amd64/linux                                                                               #
+#                                                                                                               #
+# or the install will hang.                                                                                     #
+#################################################################################################################
 
 #!/bin/bash
 
