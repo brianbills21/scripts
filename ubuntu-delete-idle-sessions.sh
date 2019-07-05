@@ -1,0 +1,1 @@
+sudo lsof | grep "(deleted)$" | sed -re 's/^\S+\s+(\S+)\s+\S+\s+([0-9]+).*/\1\/fd\/\2/' | while read file; do sudo bash -c ": > /proc/$file"; done
