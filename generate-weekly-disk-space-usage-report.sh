@@ -42,7 +42,7 @@ echo ",,,,Top 5 Consumers of Space on All Hosts/Workspaces" >> "$OUTPUTDIR"/week
 echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_"$TODAY".csv
 echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_"$TODAY".csv
 
-# Read the output of another scriptperformed on several different hosts, and print it here
+# Read the output of another script performed on several different hosts, and print it here
 cat "$OUTPUTDIR"/sideshow_top_5_per_workspace_* "$OUTPUTDIR"/simpsons_top_5_per_workspace_* "$OUTPUTDIR"/moes_top_5_per_workspace_* "$OUTPUTDIR"/flanders_top_5_per_workspace_* >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv 
 
 # Add title "Size and Used Values on all Hosts and Workspaces"
