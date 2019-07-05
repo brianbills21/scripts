@@ -1,5 +1,12 @@
-yum update -y && yum install -y perl
-curl -o /tmp/VMwareTools-10.1.6-5214329.tar.gz http://192.168.134.4/pxe_files/VMwareTools-10.1.6-5214329.tar.gz
-tar xzvf /tmp/VMwareTools-10.1.6-5214329.tar.gz
-vmware-tools-distrib/vmware-install.pl -d
-rm -Rf vmware-tools-distrib && rm -Rf /tmp/VMwareTools-10.1.6-5214329.tar.gz
+mkdir -p /mnt/vmw-tools
+mount /dev/cdrom /mnt/vmw-tools
+VMW_TOOLS=$(ls /mnt/vmw-tools/ | grep .gz) 
+cp -f /mnt/vmw-tools/${VMW_TOOLS} /tmp/
+umount /mnt/vmw-tools
+rmdir /mnt/vmw-tools
+tar -zxvf /tmp/${VMW_TOOLS} -C /tmp/
+cd /tmp/vmware-tools-distrib/
+./vmware-install.pl -d default
+rm -rf vmware-tools-distrib/
+rm -f /tmp/${VMW_TOOLS}
+cd ~
