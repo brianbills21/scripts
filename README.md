@@ -1,8 +1,7 @@
 # scripts
  README.md 
  accept-digital-fingerprint.sh
- bbdailyclients.sh  
- centos7-backout.sh  
+  centos7-backout.sh  
  centos7-host-octet-mac.sh  
  centos7-vmware-tools.sh  
  copy-keys-host.sh  
@@ -12,7 +11,8 @@
  install-tools.sh  
  ituser.sh  
  make_box.sh  
- mentor-halt-systems.sh  
+ mentor-halt-systems.sh 
+ bbdailyclients.sh   
  report6.sh  
  run.sh  
  scan_host_type.sh  
