@@ -1,5 +1,6 @@
 # scripts
- README.md  
+ README.md 
+ accept-digital-fingerprint.sh
  bbdailyclients.sh  
  centos7-backout.sh  
  centos7-host-octet-mac.sh  
@@ -8,7 +9,6 @@
  copy-keys-root.sh  
  devops_lsof.sh  
  email.sh  
- first-login.sh
  install-tools.sh  
  ituser.sh  
  make_box.sh  
