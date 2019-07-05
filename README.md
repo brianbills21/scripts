@@ -7,7 +7,7 @@
  centos7-install-splun62.sh   
  centos7-install-vmware-tools.sh  
  centos7-provision-new-kickstart-host.sh  
- disk-space-usage-email.sh
+ disk-space-usage-email.sh   
  generate-weekly-disk-space-usage-report.sh   
  make_box.sh  
  mentor-halt-systems.sh 
