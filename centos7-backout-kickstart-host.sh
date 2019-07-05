@@ -1,3 +1,13 @@
+################################################################################################
+# This script reverses changes made to the CentOS kickstart environment for a new CentOS host  #
+# build. It backs out the entry in dhcpd.conf for the dynamically static ip assignment for     #
+# the host being backed out. It removes the A record and the PTR, (pointer), record of the     #
+# host being backed out, and increments the serial numbers. It validates the accuracy and      #
+# neatness of the configuration changes. It backs up the new configuration changes. It ensures #
+# that both dhcpd and named are running after the change.                                      #
+################################################################################################
+
+#!/bin/bash
 dhcp="/etc/dhcp/dhcpd.conf"
 mj12net="/var/named/mj12net.local.db"
 systemctl stop dhcpd
