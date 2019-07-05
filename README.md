@@ -6,7 +6,6 @@
  centos7-backout-kickstart-host.sh  
  centos7-install-vmware-tools.sh  
  centos7-provision-new-kickstart-host.sh  
- devops_lsof.sh  
  email.sh  
  install-tools.sh  
  ituser.sh  
@@ -18,7 +17,8 @@
  scan_host_type.sh  
  scan_subnet_hosts.sh  
  splitaddagent.sh  
- top_5.sh  
+ top_5.sh
+ devops_lsof.sh  
  ubuntu-preseed-post-install-script.sh   
  ubuntu1604-vmwareupdate.sh  
  ubuntu1604_backout.sh  
