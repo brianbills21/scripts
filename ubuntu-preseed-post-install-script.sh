@@ -31,7 +31,7 @@ apt-get update
 # UPGRADES UBUNTU 16.04 LTS TO 18.04 LATEST BETA
 /usr/bin/apt update && /usr/bin/apt -y upgrade && /usr/bin/apt install ubuntu-release-upgrader-core && /usr/bin/apt -y update && do-release-upgrade -d -f DistUpgradeViewNonInteractive
 
-# INSTALLS AND CONFIRGURES NTP
+# INSTALLS AND CONFIGURES NTP
 /usr/bin/apt install -y ntp ntpdate && /usr/bin/ntpdate -u 0.ubuntu.pool.ntp.org && /usr/bin/timedatectl set-timezone America/Los_Angeles
 
 # COPIES KEYS FOR ROOT AND USER STORED ON YOUR PRESEED SERVER TO THE NEW HOST, MAKES ALLOWANCE FOR ROOT TO REMOTE LOGIN
