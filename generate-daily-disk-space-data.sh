@@ -10,7 +10,7 @@
 #                                                                                            #
 # and redirects all the data to a file called:                                               #                                                  #
 #                                                                                            #
-# xxxxxxx.csv                                                                                #
+# weekly_workspace_report_"$TODAY".csv                                                       #
 #                                                                                            #
 # which gets sent to the devops team manager in an email script called:                      # 
 #                                                                                            #
