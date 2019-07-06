@@ -1,3 +1,13 @@
+###########################################################################################
+# This script runs on 4 different servers and is kicked off by a cron daemon each week    #
+# it finds the top 5 disk space users accross 4 different development hosts and generates #
+# output in the form of files named "$HOSTNAME"_top_5_per_workspace_$TODAY.csv            #
+# The script gets the host name from the case statements / arrays so that the same script #
+# can be run on multiple hosts. The find command is used in conjunction with awk and it's #
+# a thing of beauty.                                                                      #
+###########################################################################################
+
+
 #!/bin/bash
 OUTPUT_DIR=/share/es-ops/Build_Farm_Reports/WorkSpace_Reports
 BASE=/export/ws
