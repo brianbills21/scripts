@@ -1,6 +1,6 @@
 ##############################################################################################
 # This script runs daily and does a df -Pm on 4 different hosts. It redirects it's output to #
-# files called $HOSTNAME.csv, i.e..., moes.csv. The script called:                           #
+# files called $HOSTNAME.csv, i.e..., moes.csv, flanders.csv, etc.... The script called:     #
 #                                                                                            #
 # generate-weekly-disk-space-usage-report.sh                                                 #
 #                                                                                            #
