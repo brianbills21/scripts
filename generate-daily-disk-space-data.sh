@@ -1,6 +1,6 @@
 ##############################################################################################
 # This script runs daily and does a df -Pm on 4 different hosts. It redirects it's output to #
-# a files called $HOSTNAME.csv, i.e..., moes.csv. The script called xxxxxxxxxx.sh, combines  #
+# files called $HOSTNAME.csv, i.e..., moes.csv. The script called xxxxxxxxxx.sh, combines    #
 # the data from these files with output files from the script xxxxx.sh, and redirects all    #
 # the data to a file called xxxxxxx.csv, which gets sent to the devops team manager in an    #
 # email script called xxxxxx.sh                                                              #
