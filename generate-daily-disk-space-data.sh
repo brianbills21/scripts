@@ -6,7 +6,7 @@
 #                                                                                            #
 # combines the data from these files with output files from the script called:               #
 #                                                                                            #
-# xxxxx.sh                                                                                   #
+# top-5-disk-space-users.sh                                                                  #
 #                                                                                            #
 # and redirects all the data to a file called:                                               #                                                  #
 #                                                                                            #
