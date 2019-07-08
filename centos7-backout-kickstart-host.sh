@@ -1,6 +1,6 @@
 ################################################################################################
 # This script reverses changes made to the CentOS kickstart environment for a new CentOS host  #
-# build. It backs out the entry in dhcpd.conf of the dynamically static ip assignment for     #
+# build. It backs out the entry in dhcpd.conf of the dynamically static ip assignment for      #
 # the host being backed out. It removes the A record and the PTR, (pointer), record of the     #
 # host being backed out, and increments the serial numbers. It validates the accuracy and      #
 # neatness of the configuration changes. It backs up the new configuration changes. It ensures #
