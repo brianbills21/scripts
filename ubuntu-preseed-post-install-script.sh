@@ -13,7 +13,7 @@
 
 #!/bin/bash
 
-# STES UP THE ENVIRONMENT
+# SETS UP THE ENVIRONMENT
 /usr/bin/apt-get install -y curl && /usr/bin/apt-get install -y openssh-server && /usr/bin/apt-get install -y wget
 
 # GRABS THE PUPPET CLIENT
