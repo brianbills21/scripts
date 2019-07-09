@@ -1,4 +1,13 @@
-#$1 hostname $2 MAC Address
+################################################################################################
+# This script prepares the Ubuntu kickstart environment for a new Ubuntu host build. It makes  # 
+# an entry in dhcpd.conf for a dynamically static ip assignment for the new host. It creates   #
+# an A record and a PTR, (pointer), record for the new host and increments the serial numbers. #
+# It validates the accuracy and neatness of the configuration changes. It backs up the new     #
+# configuration changes. It ensures that both dhcpd and named are running after the change.    #
+################################################################################################
+
+#PASS THE ARGUMENTS $1 HOSTNAME $2 MAC ADDRESS TO THIS SCRIPT
+
 set -x
 zroot="/etc/bind/zones"
 subnet="192.168.134"

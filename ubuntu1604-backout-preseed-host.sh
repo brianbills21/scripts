@@ -1,3 +1,14 @@
+################################################################################################
+# This script reverses changes made to the Ubuntu preseed environment for a new Ubuntu host    #
+# build. It backs out the entry in dhcpd.conf of the dynamically static ip assignment for      #
+# the host being backed out. It removes the A record and the PTR, (pointer), record of the     #
+# host being backed out, and increments the serial numbers. It validates the accuracy and      #
+# neatness of the configuration changes. It backs up the new configuration changes. It ensures #
+# that both dhcpd and named are running after the change.                                      #
+################################################################################################
+
+#PASS THE ARGUMENT $1 HOSTNAME TO THIS SCRIPT.
+
 dhcp="/etc/dhcp/dhcpd.conf"
 mj12net="/etc/bind/zones/db.mj12net.local"
 systemctl stop isc-dhcp-server
