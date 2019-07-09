@@ -14,37 +14,37 @@ clear
 
 plot()
 {
-	printf "\x1B["$vert";"$horiz"f"
+    printf "\x1B["$vert";"$horiz"f"
 }
 
 box()
 {
-	plot
-	printf "\x1B[0;30;47m+-----------------------------------\x1B[1;37;47m+"
-	vert=$[ ( $vert + 1 ) ]
-	plot
-	printf "\x1B[0;30;47m|                                   \x1B[1;37;47m|"
-	vert=$[ ( $vert + 1 ) ]
-	plot
-	printf "\x1B[0;30;47m|                                   \x1B[1;37;47m|"
-	vert=$[ ( $vert + 1 ) ]
-	plot
-	printf "\x1B[0;30;47m+\x1B[1;37;47m-----------------------------------+"
+    plot
+    printf "\x1B[0;30;47m+-----------------------------------\x1B[1;37;47m+"
+    vert=$[ ( $vert + 1 ) ]
+    plot
+    printf "\x1B[0;30;47m|                                   \x1B[1;37;47m|"
+    vert=$[ ( $vert + 1 ) ]
+    plot
+    printf "\x1B[0;30;47m|                                   \x1B[1;37;47m|"
+    vert=$[ ( $vert + 1 ) ]
+    plot
+    printf "\x1B[0;30;47m+\x1B[1;37;47m-----------------------------------+"
 }
 
 button()
 {
-	plot
-	printf "\x1B[1;37;47m+-----------------------------------\x1B[0;30;47m+"
-	vert=$[ ( $vert + 1 ) ]
-	plot
-	printf "\x1B[1;37;47m|                                   \x1B[0;30;47m|"
-	vert=$[ ( $vert + 1 ) ]
-	plot
-	printf "\x1B[1;37;47m|                                   \x1B[0;30;47m|"
-	vert=$[ ( $vert + 1 ) ]
-	plot
-	printf "\x1B[1;37;47m+\x1B[0;30;47m-----------------------------------+"
+    plot
+    printf "\x1B[1;37;47m+-----------------------------------\x1B[0;30;47m+"
+    vert=$[ ( $vert + 1 ) ]
+    plot
+    printf "\x1B[1;37;47m|                                   \x1B[0;30;47m|"
+    vert=$[ ( $vert + 1 ) ]
+    plot
+    printf "\x1B[1;37;47m|                                   \x1B[0;30;47m|"
+    vert=$[ ( $vert + 1 ) ]
+    plot
+    printf "\x1B[1;37;47m+\x1B[0;30;47m-----------------------------------+"
 }
 
 # Simple program start...

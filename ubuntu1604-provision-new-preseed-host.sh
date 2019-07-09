@@ -1,5 +1,5 @@
 ################################################################################################
-# This script prepares the Ubuntu kickstart environment for a new Ubuntu host build. It makes  # 
+# This script prepares the Ubuntu kickstart environment for a new Ubuntu host build. It makes  #
 # an entry in dhcpd.conf for a dynamically static ip assignment for the new host. It creates   #
 # an A record and a PTR, (pointer), record for the new host and increments the serial numbers. #
 # It validates the accuracy and neatness of the configuration changes. It backs up the new     #
@@ -19,7 +19,7 @@ octet=$((ip+1))
 systemctl stop isc-dhcp-server
 echo "host "$1" {" >> $dhcp
 echo "  hardware ethernet "$2";" >> $dhcp
-echo "  fixed-address "$subnet"."$octet";" >> $dhcp 
+echo "  fixed-address "$subnet"."$octet";" >> $dhcp
 echo "}" >> $dhcp
 systemctl start isc-dhcp-server
 
@@ -37,16 +37,16 @@ for ZONE in $(ls -1 $ZONES_PATH) ; do
     curr=$(/bin/grep -e "${NEEDLE}$" $ZONES_PATH/${ZONE} | /bin/sed -n "s/^\s*\([0-9]*\)\s*;\s*${NEEDLE}\s*/\1/p")
     # replace if current date is shorter (possibly using different format)
     if [ ${#curr} -lt ${#DATE} ]; then
-      serial="${DATE}00"
+        serial="${DATE}00"
     else
-      prefix=${curr::-2}
-      if [ "$DATE" -eq "$prefix" ]; then # same day
-        num=${curr: -2} # last two digits from serial number
-        num=$((10#$num + 1)) # force decimal representation, increment
-        serial="${DATE}$(printf '%02d' $num )" # format for 2 digits
-      else
-        serial="${DATE}00" # just update date
-      fi
+        prefix=${curr::-2}
+        if [ "$DATE" -eq "$prefix" ]; then # same day
+            num=${curr: -2} # last two digits from serial number
+            num=$((10#$num + 1)) # force decimal representation, increment
+            serial="${DATE}$(printf '%02d' $num )" # format for 2 digits
+        else
+            serial="${DATE}00" # just update date
+        fi
     fi
     /bin/sed -i -e "s/^\(\s*\)[0-9]\{0,\}\(\s*;\s*${NEEDLE}\)$/\1${serial}\2/" ${ZONES_PATH}/${ZONE}
     echo "${ZONE}: "
@@ -56,15 +56,15 @@ sudo /etc/init.d/bind9 start
 
 cat $zroot/db.mj12net.local && cat $zroot/db.$subnet
 
-# What to backup. 
+# What to backup.
 backup_files="/etc/bind /etc/dhcp/dhcpd.conf"
 
 # Where to backup to.
 dest="/home/bbills/backup"
 
 if [ ! -d "$dest" ]; then
-  # Control will enter here if $dest doesn't exist.
-sudo mkdir -p /home/bbills/backup
+    # Control will enter here if $dest doesn't exist.
+    sudo mkdir -p /home/bbills/backup
 fi
 
 # Create archive filename.

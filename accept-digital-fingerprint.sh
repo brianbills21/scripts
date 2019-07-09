@@ -12,7 +12,7 @@ server=$1
 first-login()
 {
 expect <<EOD
-#!/usr/bin/expect 
+#!/usr/bin/expect
 set prompt "#|>|\\\$"
 spawn ssh $user@$server
 expect {

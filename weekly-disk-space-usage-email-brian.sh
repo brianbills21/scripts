@@ -1,5 +1,5 @@
 #!/bin/bash
-OUTPUT_DIR=/share/it-ops/Build_Farm_Reports/WorkSpace_Reports 
+OUTPUT_DIR=/share/it-ops/Build_Farm_Reports/WorkSpace_Reports
 #cd $OUTPUT_DIR
 #tar -czf weekly_workspace_reports_$(date +%Y-%m-%d).tar.gz *.csv
 
@@ -38,8 +38,8 @@ attachments=( `ls -lt weekly_workspace_report_* | head -1 | awk '{print $9}'` )
 
 # Build headers
 {
-
-printf '%s\n' "From: $from
+    
+    printf '%s\n' "From: $from
 To: $to
 Subject: $subject
 Mime-Version: 1.0
@@ -51,28 +51,28 @@ Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
 
 $body
-"
-
-# now loop over the attachments, guess the type
-# and produce the corresponding part, encoded base64
-for file in "${attachments[@]}"; do
-
-  [ ! -f "$file" ] && echo "Warning: attachment $file not found, skipping" >&2 && continue
-
-  #mimetype=$(get_mimetype "$file")
-printf '%s\n' "--${boundary}
+    "
+    
+    # now loop over the attachments, guess the type
+    # and produce the corresponding part, encoded base64
+    for file in "${attachments[@]}"; do
+        
+        [ ! -f "$file" ] && echo "Warning: attachment $file not found, skipping" >&2 && continue
+        
+        #mimetype=$(get_mimetype "$file")
+        printf '%s\n' "--${boundary}
 Content-Type: $mimetype
 Content-Transfer-Encoding: base64
 Content-Disposition: ent; filename=\"$file\"
-"
-
-  base64 "$file"
-  echo
-done
-
-# print last boundary with closing --
-
-printf '%s\n' "--${boundary}--"
-
+        "
+        
+        base64 "$file"
+        echo
+    done
+    
+    # print last boundary with closing --
+    
+    printf '%s\n' "--${boundary}--"
+    
 } | sendmail -t -oi   # one may also use -f here to set the envelope-from
 mv ./weekly_workspace_report_*.csv $OUTPUT_DIR/temp
