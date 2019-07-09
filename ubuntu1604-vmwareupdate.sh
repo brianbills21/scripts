@@ -9,7 +9,7 @@ expect <<EOD
 set timeout 60
 log_user 1
 #set host $1
-set password ******** 
+set password ********
 set user bbills
 set logfile output.txt
 spawn ssh $user@$host
