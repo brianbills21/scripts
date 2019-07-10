@@ -3,7 +3,7 @@
 # modpxy007
 # modpxy008
 
-# to determine which hosts have yet to be migrated from McAfee to Cylance.
+# to determine which hosts have already been migrated from McAfee to Cylance.
 
 #!/bin/bash
 TODAY=`date +"%y%m%d"`
