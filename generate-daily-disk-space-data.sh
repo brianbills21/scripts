@@ -14,7 +14,7 @@
 #                                                                                            #
 # which gets sent to the devops team manager in an email script called:                      #
 #                                                                                            #
-# weekly-email-workspace-report.sh                                                           #
+# weekly-email-workspace-report-brian.sh                                                     #
 ##############################################################################################
 
 
