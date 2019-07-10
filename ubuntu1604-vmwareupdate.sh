@@ -24,7 +24,10 @@ send -- "sudo su -\r"
 expect -gl {*?assword for bbills:*}
 send -- "$password\r"
 expect "# "
-send -- "apt-get install -y curl && /usr/bin/curl -o /tmp/VMwareTools-10.1.5-5055693.tar.gz http://192.168.134.3/vmware/VMwareTools-10.1.5-5055693.tar.gz && cd /tmp && /bin/tar xzvf VMwareTools-10.1.5-5055693.tar.gz && /bin/chmod +x /tmp/vmware-tools-distrib/vmware-install.pl && /tmp/vmware-tools-distrib/vmware-install.real.pl -d\r"
+send -- "apt-get install -y curl && /usr/bin/curl -o /tmp/VMwareTools-10.1.5-5055693.tar.gz \
+http://192.168.134.3/vmware/VMwareTools-10.1.5-5055693.tar.gz && cd /tmp && /bin/tar xzvf \
+VMwareTools-10.1.5-5055693.tar.gz && /bin/chmod +x /tmp/vmware-tools-distrib/vmware-install.pl \
+&& /tmp/vmware-tools-distrib/vmware-install.real.pl -d\r"
 log_file /home/bbills/output.log
 expect "# "
 log_file
