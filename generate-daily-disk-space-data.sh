@@ -17,7 +17,6 @@
 # weekly-email-workspace-report-brian.sh                                                     #
 ##############################################################################################
 
-
 #!/bin/bash
 OUTPUT_DIR=/share/es-ops/Build_Farm_Reports/WorkSpace_Reports
 BASE=/export/ws
