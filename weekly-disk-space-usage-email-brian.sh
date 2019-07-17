@@ -1,3 +1,4 @@
+#Email to send a weekly disk space usage report to the DevOps manager.
 #!/bin/bash
 OUTPUT_DIR=/share/it-ops/Build_Farm_Reports/WorkSpace_Reports
 #cd $OUTPUT_DIR
