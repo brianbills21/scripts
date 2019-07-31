@@ -60,5 +60,5 @@ cp $OUTPUTDIR/weekly_workspace_report_"$TODAY".csv $BUILDDIR
 # Delete the temporary data file jm_out
 rm -Rf "$OUTPUTDIR"/jm_output
 
-# Move all the files with *top_5_per^ in their names to a temp directory
+# Move all the files with *top_5_per* in their names to a temp directory
 mv "$OUTPUTDIR"/*top_5_per* "$OUTPUTDIR"/temp
