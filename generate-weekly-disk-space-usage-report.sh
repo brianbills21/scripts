@@ -1,6 +1,6 @@
 ###########################################################################################################
 # Reads the output of a perl script that maintains statistics of disk space usage in a devops environment #
-# The line stating with "awk", sorts the data and presents it in a "workspace report", combining it with  #
+# The line starting with "awk", sorts the data and presents it in a "workspace report", combining it with #
 # other data obtained from top-5-disk-space-users.sh. If I ever use something like this again, I'll       #
 # combine the scripts together and call them each as a funtion from the main routine.                     #
 ###########################################################################################################
