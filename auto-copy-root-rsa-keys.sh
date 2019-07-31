@@ -1,6 +1,6 @@
 
 ########################################################################################
-# Only use this if you're in am environment where someone can't ngrep your packets     #
+# Only use this if you're in an environment where someone can't ngrep your packets     #
 # or do a `ps -ef | grep auto-copy-rsa-keys.sh`, it's really safer to do a ssh-copy-id #
 # or copy the keys with puppet and then use ansible to manage the host. But if you     #
 # happen to find yourself having to copy keys to 100+, already provisioned hosts in    #
