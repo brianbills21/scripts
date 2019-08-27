@@ -2,7 +2,7 @@
 # Install Splunk 6.2 on CentOS 7 as a non-root user service that runs on boot with
 # systemd. This script also opens the firewall to allow syslog on UDP port 514. Since
 # we're running Splunk as non-root, this port is then forwarded to 5514. Configuring a
-# syslog input in slunk on UDP 514 will gather this data.  Must be run as root
+# syslog input in slunk on UDP 514 will gather this data. Must be run as root.
 
 # Create Account
 useradd splunk
