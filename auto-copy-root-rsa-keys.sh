@@ -4,7 +4,7 @@
 # or do a `ps -ef | grep auto-copy-rsa-keys.sh`, it's really safer to do a ssh-copy-id #
 # or copy the keys with puppet and then use ansible to manage the host. But if you     #
 # happen to find yourself having to copy keys to 100+ serers, use this script          #
-# cautiously using ansible to do the operation en masse.                               #                                      
+# cautiously using ansible to do the operation en masse. ***github web-hook test***    #                                      
 ########################################################################################
 
 user="bbills"
