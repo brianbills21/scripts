@@ -1,4 +1,5 @@
 #Script called from root's crontab to change letsencrypt certs every 90 days
+#Called like this: 0 5 */90 * * /usr/share/jenkins/change_jenkins_certs.sh
 systemctl jenkins stop
 mv /usr/share/jenkins/fullchain1.pem /usr/share/jenkins/fullchain1.pem_$(date +%d-%m-%Y)
 mv /usr/share/jenkins/privkey-rsa.pem /usr/share/jenkins/privkey-rsa.pem_$(date +%d-%m-%Y)
