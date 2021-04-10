@@ -3,7 +3,7 @@
 systemctl stop jenkins
 mv /usr/share/jenkins/fullchain1.pem /usr/share/jenkins/fullchain1.pem_$(date +%m-%d-%Y)
 mv /usr/share/jenkins/privkey-rsa.pem /usr/share/jenkins/privkey-rsa.pem_$(date +%m-%d-%Y)
-cp /etc/letsencrypt/live/jenkins.usreliance.com/* /usr/share/jenkins/
+cp /etc/letsencrypt/live/jenkins.usreliance.com/privkey.pem /usr/share/jenkins/
 openssl rsa -in /usr/share/jenkins/privkey.pem -out /usr/share/jenkins/privkey-rsa.pem
-mv /usr/share/jenkins/fullchain.pem /usr/share/jenkins/fullchain1.pem
+cp /etc/letsencrypt/live/jenkins.usreliance.com/fullchain.pem /usr/share/jenkins/fullchain1.pem
 systemctl start jenkins
