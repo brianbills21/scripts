@@ -1,5 +1,5 @@
 #############################################################################################
-# This script runs on 4 different servers and is kicked off by a cron daemon each week.     #
+# This script runs on 4 different servers, and is kicked off by a cron daemon each week.    #
 # It finds the top 5 disk space users accross 4 different development hosts, and generates  #
 # output in the form of files named "$HOSTNAME"_top_5_per_workspace_$TODAY.csv              #
 # The script can be run on multiple hosts. The find command is used in conjunction with awk #
