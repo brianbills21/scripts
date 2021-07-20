@@ -33,7 +33,7 @@ echo $octet"     IN      PTR     "$1"."$domain"         ; "$subnet"."$octet >> $
 
 ZONES_PATH="/var/named"
 DATE=$(date +%Y%m%d)
-# we're looking line containing this comment
+# we're looking for a line containing the comment "Serial".
 NEEDLE="Serial"
 for ZONE in $(ls -1 $ZONES_PATH) ; do
     curr=$(/bin/grep -e "${NEEDLE}$" $ZONES_PATH/${ZONE} | /bin/sed -n "s/^\s*\([0-9]*\)\s*;\s*${NEEDLE}\s*/\1/p")
