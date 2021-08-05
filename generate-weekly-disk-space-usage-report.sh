@@ -29,7 +29,8 @@ echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
 echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
 
 # Process the output data from disk-usage-JM.pl in the file jm_output, and print it here
-awk '!/^ / {sub(":","",$1); name=$1; next} NF==3{a[name]+=$2} END {for (i in a) printf "%s,%5.2f,GB\n", i, a[i]/1024}' "$OUTPUTDIR"/jm_output | sort -t, -rnk2 | awk -F, '$2+0>100' >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
+awk '!/^ / {sub(":","",$1); name=$1; next} NF==3{a[name]+=$2} END {for (i in a) printf "%s,%5.2f,GB\n", i, a[i]/1024}' "$OUTPUTDIR"/jm_output | \
+sort -t, -rnk2 | awk -F, '$2+0>100' >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
 
 # Add two more blank lines
 echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
@@ -43,7 +44,8 @@ echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_"$TODAY".csv
 echo ",,,,," >> "$OUTPUTDIR"/weekly_workspace_report_"$TODAY".csv
 
 # Read the output of another script performed on several different hosts, and print it here
-cat "$OUTPUTDIR"/sideshow_top_5_per_workspace_* "$OUTPUTDIR"/simpsons_top_5_per_workspace_* "$OUTPUTDIR"/moes_top_5_per_workspace_* "$OUTPUTDIR"/flanders_top_5_per_workspace_* >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
+cat "$OUTPUTDIR"/sideshow_top_5_per_workspace_* "$OUTPUTDIR"/simpsons_top_5_per_workspace_* "$OUTPUTDIR"/moes_top_5_per_workspace_* \
+"$OUTPUTDIR"/flanders_top_5_per_workspace_* >> "$OUTPUTDIR"/weekly_workspace_report_$TODAY.csv
 
 # Add title "Size and Used Values on all Hosts and Workspaces"
 echo ",,,,Size and Used Values on all Hosts and Workspaces" >> "$OUTPUTDIR"/weekly_workspace_report_"$TODAY".csv
