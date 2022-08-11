@@ -10,7 +10,8 @@
  generate-daily-disk-space-data.sh   
  generate-subnet-host-report.sh   
  generate-subnet-hgost-type-report.sh   
- generate-weekly-disk-space-usage-report.sh   
+ generate-weekly-disk-space-usage-report.sh
+ log2html.sh
  draw-box-around-content.sh  
  find-top-5-disk-space-users.sh   
  mentor-halt-systems.sh   
