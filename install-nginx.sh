@@ -34,6 +34,7 @@ server {
         listen       80;
         root         /var/www/mj12net.org/html;
         index        index.html;
+        }
 EOF
 
 #Zero out index.html
