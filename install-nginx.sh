@@ -7,7 +7,7 @@ apt install -y nginx
 #Create a folder for mj12net.org
 mkdir /etc/nginx/sites-available/mj12net.org
 
-#Link mj12net.org to sites.enabled
+#Link mj12net.org to sites-enabled
 ln -s /etc/nginx/sites-available/mj12net.org /etc/nginx/sites-enabled/
 
 #Make /var/www/mj12net.org/html/index.html your home page
