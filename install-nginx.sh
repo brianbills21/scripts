@@ -1,6 +1,8 @@
 #Test if a daemon is listening on port 80, if not install nginx
 if [[ ! -z $(netstat -an | grep "0.0.0.0:80") ]]; then echo "listening on 80"; else
 
+#apt update
+
 #Install nginx
 apt install -y nginx
 
@@ -14,7 +16,7 @@ systemctl enable nginx
 mkdir /etc/nginx/sites-available/mj12net.org/html
 
 #Assign ownership of the directory with the $USER environment variable
-chown -R $USER:$USER /var/www/your_domain/html
+chown -R $USER:$USER /var/www/mj12net.org/html
 
 #To ensure that your permissions are correct and allow the owner to read, write, 
 #and execute the files while granting only read and execute permissions to groups 
