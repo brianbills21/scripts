@@ -1,7 +1,10 @@
+#Run this script as root
+
 #Test if a daemon is listening on port 80, if not install nginx
 if [[ ! -z $(netstat -an | grep "0.0.0.0:80") ]]; then echo "listening on 80"; else
 
 #apt update
+apt update
 
 #Install nginx
 apt install -y nginx
