@@ -27,6 +27,6 @@ sudo >/var/www/mj12net.org/html/index.html
 
 sudo echo "$(hostname -I | cut -d' ' -f1) mj12net.org" >> /etc/hosts
 
-#Check status of nginx
-sudo systemctl status nginx
+#Restart nginx
+sudo systemctl restart nginx
 fi
