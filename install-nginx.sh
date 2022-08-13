@@ -29,6 +29,25 @@ chmod -R 755 /var/www/mj12net.org
 #Create a blank indes.html page
 touch /var/www/mj12net.org/html/index.html
 
+#In order for Nginx to serve this content, it’s necessary to create a server block 
+#with the correct directives. Instead of modifying the default configuration file 
+#directly, let’s make a new one at
+cat <<EOF > /etc/nginx/sites-available/mj12net.org
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/mj12net.org/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name mj12net.org www.mj12net.org;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+EOF
+
 #Link mj12net.org to sites-enabled
 ln -s /etc/nginx/sites-available/mj12net.org /etc/nginx/sites-enabled/
 
