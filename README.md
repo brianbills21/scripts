@@ -14,6 +14,7 @@
  generate-subnet-hgost-type-report.sh   
  generate-subnet-host-report.sh   
  generate-weekly-disk-space-usage-report.sh
+ install-nginx.sh
  log2html.sh
  mentor-halt-systems.sh   
  monitor-webwasher-proxy-logs.sh   
