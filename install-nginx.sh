@@ -14,7 +14,7 @@ sudo ln -s /etc/nginx/sites-available/mj12net.org /etc/nginx/sites-enabled/
 sudo cat << EOF | sed '/^http {$/ r /dev/stdin' /etc/nginx/nginx.conf
 
 server {
-        server_name  192.168.1.168;
+        server_name  "$(hostname -I | cut -d' ' -f1)";
         listen       80;
         root         /var/www/mj12net.org/html;
         index        index.html;
