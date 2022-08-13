@@ -26,7 +26,7 @@ chown -R $USER:$USER /var/www/mj12net.org/html
 #and others, you can input the following command
 chmod -R 755 /var/www/mj12net.org
 
-#Create a blank indes.html page
+#Create a blank index.html page
 touch /var/www/mj12net.org/html/index.html
 
 #In order for Nginx to serve this content, it’s necessary to create a server block 
