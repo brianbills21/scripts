@@ -15,6 +15,7 @@ USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean:1.25.6 docker-workflow:1.29"
 EOF
 cd /opt/jenkins
+docker build -t myjenkins-blueocean:2.346.3-1 .
 docker run \
   --name jenkins-blueocean \
   --detach \
