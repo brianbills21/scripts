@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Run script as root
+=======
+#Run this script as root
+>>>>>>> 8112ba934018b6a79ac2cfb07c58912b82bc8e32
 mkdir -p /opt/jenkins/{jenkins-data,junkins-docker-certs}
 cat <<EOF > /opt/jenkins/Dockerfile
 FROM jenkins/jenkins:2.346.3-jdk11
