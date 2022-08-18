@@ -29,30 +29,3 @@
  weekly-disk-space-usage-email-brian.sh   
  weekly-disk-space-usage-email-steven.sh         
 ```
-```
-sample4.sh usage:
-#################
-
-The sample.bin file must be in the same folder as sample4.sh
-
-You can run this file in place to return all possible samples:
-[root@usreliance Biorad]#./sample4.sh
-
-To return a sepecific sample 15:
-[root@usreliance Biorad]#./sample4.sh | grep "Sample 15:"
-
-To return the first 15 samples: NOTE: we're adding 1 to 15 for the column header
-[root@usreliance Biorad]# ./sample4.sh | head -n 16
-
-To return Sample 15 channel 3:
-[root@usreliance Biorad]# ./sample4.sh | grep "Sample 15:" | awk '{print $1,$5}'
-
-To return Sample 15 channel 2:
-[root@usreliance Biorad]# ./sample4.sh | grep "Sample 15:" | awk '{print $1,$4}'
-
-To return Sample 15 channel 1:
-[root@usreliance Biorad]# ./sample4.sh | grep "Sample 15:" | awk '{print $1,$3}'
-
-To return Sample 15 channel 0:
-[root@usreliance Biorad]# ./sample4.sh | grep "Sample 15:" | awk '{print $1,$2}'
-```
