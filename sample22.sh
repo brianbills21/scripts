@@ -92,7 +92,7 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
   }
   END {
     tPrint="2"
-    if(tParamPassed && tPrint == 2) {
+    if (tParamPassed && tPrint == 2) {
       printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
     }
 }
