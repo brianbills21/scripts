@@ -22,10 +22,6 @@ infile=$1
 rLines=$(hexdump -v -e '8/1 "%02x " "\n"' "$infile" | wc -l)
 read -r size _ < <(wc -c "$infile")
 lines=$(( (size - 1) / 8 ))             # last line number
-#if (( rParamPassed == true )); then
-#  printf "Total Samples in "$(basename $infile)":\t"$((lines+1))"\n"
-#  exit 0
-#fi
 if [[ $rParamPassed == "true" ]]; then
   printf "Total Samples in "$(basename $infile)": "$rLines"\n"
 else
