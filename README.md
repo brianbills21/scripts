@@ -18,7 +18,8 @@
  install-nginx.sh
  log2html.sh
  mentor-halt-systems.sh   
- monitor-webwasher-proxy-logs.sh   
+ monitor-webwasher-proxy-logs.sh
+ sample22.sh
  separate-non-cylance-hosts.sh   
  ubuntu-delete-idle-sessions.sh   
  ubuntu-preseed-post-install-script.sh   
