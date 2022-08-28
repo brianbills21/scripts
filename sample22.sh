@@ -3,12 +3,13 @@ samps=""
 chans=""
 tParamPassed=false
 rParamPassed=false
-while getopts ':c:s:trx' opt; do
+while getopts ':c:s:tro' opt; do
     case $opt in
         s) samps="$OPTARG" ;;
         c) chans="$OPTARG" ;;
         t) tParamPassed=true ;;
         r) rParamPassed=true ;;
+        o) oParamPassed=true ;;
         *) printf 'Unrecognized option "%s"\n' "$opt" >&2
     esac
 done
@@ -22,11 +23,15 @@ infile=$1
 rLines=$(hexdump -v -e '8/1 "%02x " "\n"' "$infile" | wc -l)
 read -r size _ < <(wc -c "$infile")
 lines=$(( (size - 1) / 8 ))             # last line number
+#if (( rParamPassed == true )); then
+#  printf "Total Samples in "$(basename $infile)":\t"$((lines+1))"\n"
+#  exit 0
+#fi
 if [[ $rParamPassed == "true" ]]; then
   printf "Total Samples in "$(basename $infile)": "$rLines"\n"
 else
 hexdump -v -e '8/1 "%02x " "\n"' "$infile" |
-awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" '
+awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" -v rParamPassed="$rParamPassed" -v oParamPassed="$oParamPassed" -v now="$(date +"%m_%d_%Y")" '
 # expand comma-separated range parameters into individual numbers
 # assigning indexes of array "a"
 # omitted range parameters default to min or max individually
@@ -95,6 +100,11 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     if(tParamPassed && tPrint == 2) {
       printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
     }
+    oPrint="3"
+    if (oParamPassed && oPrint == 3) {
+      printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1,     last+1)
+    exit 0
+    }
 }
-'
+' | head -n -2 > outputfile.txt
 fi
