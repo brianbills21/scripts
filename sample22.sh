@@ -9,7 +9,6 @@ while getopts ':c:s:trx' opt; do
         c) chans="$OPTARG" ;;
         t) tParamPassed=true ;;
         r) rParamPassed=true ;;
-        x) xParamPassed=true ;;
         *) printf 'Unrecognized option "%s"\n' "$opt" >&2
     esac
 done
@@ -31,7 +30,7 @@ if [[ $rParamPassed == "true" ]]; then
   printf "Total Samples in "$(basename $infile)": "$rLines"\n"
 else
 hexdump -v -e '8/1 "%02x " "\n"' "$infile" |
-awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" -v xParamPassed="$xParamPassed" '
+awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" '
 # expand comma-separated range parameters into individual numbers
 # assigning indexes of array "a"
 # omitted range parameters default to min or max individually
@@ -58,7 +57,6 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     return last                               # last line number to process
   }
   BEGIN {
-    hasPrinted=false
     # pass in total records and reset the totalIterated var
     totalRecords = lines
     # expand sample string to array "srange"
@@ -76,9 +74,10 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
   }
   {
     if (NR-1 > last) {
-
-      if (tParamPassed)
+      tPrint="1"
+      if (tParamPassed && $tPrint == 1) {
         printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
+      }
       exit 0             # exit earlier if remaining are out of interest
     }
     if (NR-1 in srange) {
@@ -96,8 +95,10 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     }
   }
   END {
-    if (xParamPassed)
+    tPrint="2"
+    if(tParamPassed && tPrint == 2) {
       printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
+    }
 }
 '
 fi
