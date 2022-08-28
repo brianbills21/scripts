@@ -3,6 +3,7 @@ samps=""
 chans=""
 tParamPassed=false
 rParamPassed=false
+oParamPassed=false
 while getopts ':c:s:tro' opt; do
     case $opt in
         s) samps="$OPTARG" ;;
