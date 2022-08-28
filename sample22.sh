@@ -106,5 +106,5 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     exit 0
     }
 }
-' | head -n -2 > outputfile.txt
+'
 fi
