@@ -3,12 +3,13 @@ samps=""
 chans=""
 tParamPassed=false
 rParamPassed=false
-while getopts ':c:s:tr' opt; do
+while getopts ':c:s:trx' opt; do
     case $opt in
         s) samps="$OPTARG" ;;
         c) chans="$OPTARG" ;;
         t) tParamPassed=true ;;
         r) rParamPassed=true ;;
+        x) xParamPassed=true ;;
         *) printf 'Unrecognized option "%s"\n' "$opt" >&2
     esac
 done
@@ -19,6 +20,7 @@ if (( $# == 0 )); then
   exit 1
 fi
 infile=$1
+rLines=$(hexdump -v -e '8/1 "%02x " "\n"' "$infile" | wc -l)
 read -r size _ < <(wc -c "$infile")
 lines=$(( (size - 1) / 8 ))             # last line number
 #if (( rParamPassed == true )); then
@@ -26,10 +28,10 @@ lines=$(( (size - 1) / 8 ))             # last line number
 #  exit 0
 #fi
 if [[ $rParamPassed == "true" ]]; then
-  printf "Total Samples: "$(hexdump -v -e '8/1 "%02x " "\n"' "$infile" | wc -l)"\n"
+  printf "Total Samples in "$(basename $infile)": "$rLines"\n"
 else
 hexdump -v -e '8/1 "%02x " "\n"' "$infile" |
-awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" '
+awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" -v xParamPassed="$xParamPassed" '
 # expand comma-separated range parameters into individual numbers
 # assigning indexes of array "a"
 # omitted range parameters default to min or max individually
@@ -56,6 +58,7 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     return last                               # last line number to process
   }
   BEGIN {
+    hasPrinted=false
     # pass in total records and reset the totalIterated var
     totalRecords = lines
     # expand sample string to array "srange"
@@ -73,8 +76,9 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
   }
   {
     if (NR-1 > last) {
+
       if (tParamPassed)
-        printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+2)
+        printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
       exit 0             # exit earlier if remaining are out of interest
     }
     if (NR-1 in srange) {
@@ -92,8 +96,8 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     }
   }
   END {
-    #if (tParamPassed)
-    #  printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines, last+1)
-  }
+    if (xParamPassed)
+      printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
+}
 '
 fi
