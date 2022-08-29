@@ -104,7 +104,7 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     }
     oPrint="3"
     if (oParamPassed && oPrint == 3) {
-     printf outfile
+      printf outfile
     }
 }
 '
