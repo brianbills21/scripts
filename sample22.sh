@@ -3,7 +3,8 @@ samps=""
 chans=""
 tParamPassed=false
 rParamPassed=false
-while getopts ':c:s:tro' opt; do
+outfile=""
+while getopts ':c:s:o:tr' opt; do
     case $opt in
         s) samps="$OPTARG" ;;
         c) chans="$OPTARG" ;;
@@ -31,7 +32,8 @@ if [[ $rParamPassed == "true" ]]; then
   printf "Total Samples in "$(basename $infile)": "$rLines"\n"
 else
 hexdump -v -e '8/1 "%02x " "\n"' "$infile" |
-awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" -v rParamPassed="$rParamPassed" -v oParamPassed="$oParamPassed" -v now="$(date +"%m_%d_%Y")" '
+awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" \
+-v rParamPassed="$rParamPassed" -v now="$(date +"%m-%d-%Y"date +%Y-%m-%d.%H:%M:%S)" -v oParamPassed="$oParamPassed" '
 # expand comma-separated range parameters into individual numbers
 # assigning indexes of array "a"
 # omitted range parameters default to min or max individually
@@ -65,10 +67,10 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     # expand channel string to array "crange"
     expn(chans, crange, 0, 3)
     # print channel header row
-    printf "\t"
+    printf "\t" (oParamPassed?>"outfile".txt:"")
     for (c = 0; c <= 3; c++) {
       if (c in crange) {
-        printf("\tCh%d", c)
+        printf("\tCh%d", c)(oParamPassed?>"outfile.txt":)
       }
     }
     print ""
@@ -83,13 +85,13 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     }
     if (NR-1 in srange) {
       # print sample range
-      printf("Sample %d:", NR-1)
+      printf("Sample %d:", NR-1)(oParamPassed?>"outfile.txt":)
       # print channel range in sample line
       for (c = 0; c <= 3; c++) {
         if (c in crange) {
           i = c * 2 + 1
           j = i + 1
-          printf("\t0x%s%s", $i, $j)
+          printf("\t0x%s%s", $i, $j)(oParamPassed?>"outfile.txt":)
         }
       }
       print ""
@@ -102,7 +104,7 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     }
     oPrint="3"
     if (oParamPassed && oPrint == 3) {
-      printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1,     last+1)
+      printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
     }
 }
 '
