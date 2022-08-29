@@ -103,7 +103,7 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     }
     oPrint="3"
     if (oParamPassed && oPrint == 3) {
-      printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1,     last+1)
+      printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
     }
 }
 '
