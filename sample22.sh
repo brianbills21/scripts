@@ -3,8 +3,13 @@ samps=""
 chans=""
 tParamPassed=false
 rParamPassed=false
+<<<<<<< HEAD
 outfile=""
 while getopts ':c:s:o:tr' opt; do
+=======
+oParamPassed=false
+while getopts ':c:s:tro' opt; do
+>>>>>>> 722d61f5667842b58b4751a0d9e680220cbe4511
     case $opt in
         s) samps="$OPTARG" ;;
         c) chans="$OPTARG" ;;
