@@ -3,19 +3,12 @@ samps=""
 chans=""
 tParamPassed=false
 rParamPassed=false
-<<<<<<< HEAD
-outfile=""
-while getopts ':c:s:o:tr' opt; do
-=======
-oParamPassed=false
 while getopts ':c:s:tro' opt; do
->>>>>>> 722d61f5667842b58b4751a0d9e680220cbe4511
     case $opt in
         s) samps="$OPTARG" ;;
         c) chans="$OPTARG" ;;
         t) tParamPassed=true ;;
         r) rParamPassed=true ;;
-        o) oParamPassed=true ;;
         *) printf 'Unrecognized option "%s"\n' "$opt" >&2
     esac
 done
@@ -29,16 +22,11 @@ infile=$1
 rLines=$(hexdump -v -e '8/1 "%02x " "\n"' "$infile" | wc -l)
 read -r size _ < <(wc -c "$infile")
 lines=$(( (size - 1) / 8 ))             # last line number
-#if (( rParamPassed == true )); then
-#  printf "Total Samples in "$(basename $infile)":\t"$((lines+1))"\n"
-#  exit 0
-#fi
 if [[ $rParamPassed == "true" ]]; then
   printf "Total Samples in "$(basename $infile)": "$rLines"\n"
 else
 hexdump -v -e '8/1 "%02x " "\n"' "$infile" |
-awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" \
--v rParamPassed="$rParamPassed" -v now="$(date +"%m-%d-%Y"date +%Y-%m-%d.%H:%M:%S)" -v oParamPassed="$oParamPassed" '
+awk -v samps="$samps" -v chans="$chans" -v lines="$lines" -v baseFileName="$(basename $infile)" -v tParamPassed="$tParamPassed" -v rParamPassed="$rParamPassed" '
 # expand comma-separated range parameters into individual numbers
 # assigning indexes of array "a"
 # omitted range parameters default to min or max individually
@@ -72,10 +60,10 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     # expand channel string to array "crange"
     expn(chans, crange, 0, 3)
     # print channel header row
-    printf "\t" (oParamPassed?>"outfile".txt:"")
+    printf "\t"
     for (c = 0; c <= 3; c++) {
       if (c in crange) {
-        printf("\tCh%d", c)(oParamPassed?>"outfile.txt":)
+        printf("\tCh%d", c)
       }
     }
     print ""
@@ -90,13 +78,13 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
     }
     if (NR-1 in srange) {
       # print sample range
-      printf("Sample %d:", NR-1)(oParamPassed?>"outfile.txt":)
+      printf("Sample %d:", NR-1)
       # print channel range in sample line
       for (c = 0; c <= 3; c++) {
         if (c in crange) {
           i = c * 2 + 1
           j = i + 1
-          printf("\t0x%s%s", $i, $j)(oParamPassed?>"outfile.txt":)
+          printf("\t0x%s%s", $i, $j)
         }
       }
       print ""
@@ -105,10 +93,6 @@ function expn(str, a, min, max,     i, j, b, c, l, last) {
   END {
     tPrint="2"
     if (tParamPassed && tPrint == 2) {
-      printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
-    }
-    oPrint="3"
-    if (oParamPassed && oPrint == 3) {
       printf("Total Samples in %s:\t%d\nTotal Samples Processed:\t%d\n", baseFileName, lines+1, last+1)
     }
 }
