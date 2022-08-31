@@ -18,7 +18,7 @@ shift $(( OPTIND - 1 ))
 [[ $oParamPassed = "true" ]] && { exec > outfile-$(date +%m-%d-%Y.%H:%M:%S); }
 # if input_file is not specified, print usage and exit
 if (( $# == 0 )); then
-  echo "usage: $0 ([-s samples] [-c channels] | -t) file"
+  echo "usage: $0 ([-s samples] [-c channels] | -t | -r | -o) file"
   exit 1
 fi
 infile=$1
