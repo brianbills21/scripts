@@ -9,6 +9,7 @@
  centos7-install-vmware-tools.sh  
  centos7-provision-new-kickstart-host.sh
  create-docker-jenkins.sh
+ diff-overlays.py
  draw-box-around-content.sh  
  find-top-5-disk-space-users.sh   
  generate-daily-disk-space-data.sh   
