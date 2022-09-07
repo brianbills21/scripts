@@ -73,7 +73,7 @@ def get_popular_videos(api_key):
     params = {'part': 'snippet,contentDetails,statistics',
               'chart': 'mostPopular',
               'maxResults': '25',
-              'key': api_key}
+              'key': 'AIzaSyBhXq9bZ8c3J'}
     # make the request
     response = requests.get(base_url + 'videos', params=params)
     # return the response
