@@ -14,7 +14,7 @@ from googleapiclient.discovery import build
 # tab of
 #   https://cloud.google.com/console
 # Please ensure that you have enabled the YouTube Data API for your project.
-DEVELOPER_KEY = "---hidden for security---"
+DEVELOPER_KEY = "AIzaSyCFxZNTqd4pVXKLfQj0rp5a0JClb-jJWJI"
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -56,11 +56,11 @@ def main():
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
     writer.writeheader()
-    for video in youtube_search(args):
-      print "Title: %s" % video['snippet']['title']
-      print "View Count: %s" % video['statistics']['viewCount']
-      print "Video ID: %s" % video['id']['videoId']
-      print "\n"
+    for video in youtube_search(args):  # video is a dictionary
+      print("Title: %s" % video['snippet']['title'])  # Print video title
+      print("View Count: %s" % video['statistics']['viewCount'])  # video['statistics']['viewCount']
+      print("Video ID: %s" % video['id']['videoId'])  # videoId
+      print("\n")  # blank line
 
       writer.writerow({'title': video['snippet']['title'], 'viewCount': video['statistics']['viewCount'], 'videoId': video['id']['videoId']})
 
