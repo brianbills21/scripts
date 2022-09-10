@@ -30,7 +30,18 @@ def youtube_search(options):
     maxResults=options.max_results
   ).execute()
 
-  videos = []
+  ids = [item["id"]["videoId"] for item in search_response["items"]]
+
+  search_response = youtube.videos().list(
+    part="statistics",
+    ids=ids
+  ).execute()
+
+  videos_with_view_counts = [[item["id"], item["statistics"]["viewCount"]] for item in search_response["items"]]
+
+  videos_with_view_counts.sort(key=lambda x: x[1], reverse=True)
+
+  return [item[0] for item in videos_with_view_counts]
 
   # Add each result to the appropriate list, and then display the lists of
   # matching videos, channels, and playlists.
