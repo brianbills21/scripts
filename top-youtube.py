@@ -12,7 +12,7 @@ from googleapiclient.discovery import build
 # tab of
 #   https://cloud.google.com/console
 # Please ensure that you have enabled the YouTube Data API for your project.
-DEVELOPER_KEY = "---hidden---"
+DEVELOPER_KEY = "--hidden--"
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -37,9 +37,7 @@ def youtube_search(options):
 
   videos_with_view_counts = [[item["id"], item["statistics"]["viewCount"]] for item in search_response["items"]]
 
-  videos_with_view_counts.sort(key=lambda x: x[1], reverse=True)
-
-  return [item[0] for item in videos_with_view_counts]
+  return videos_with_view_counts
 
   # Add each result to the appropriate list, and then display the lists of
   # matching videos, channels, and playlists.
