@@ -1,8 +1,6 @@
 #Write a script that writes a csv file with a list of the top most viewed YouTube videos.
 #The script should take a YouTube API key as an argument and use it to query the YouTube Data API for the top most viewed videos.
 #The script should then write the video title, video view count, and video ID to a csv file.
-#The script should also print the video title, video view count, and video ID to the terminal.
-#The script should also print the total number of views to the terminal.
 #The script should also print the total number of views to a file.
 
 import csv
