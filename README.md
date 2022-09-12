@@ -21,6 +21,7 @@
  log2html.sh
  mentor-halt-systems.sh   
  monitor-webwasher-proxy-logs.sh
+ python-trading-bot.py
  sample22.sh
  separate-non-cylance-hosts.sh
  top-youtube.py
