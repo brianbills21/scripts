@@ -86,4 +86,16 @@ def trader(investment=100):
         quantity=posframe.loc[posframe.Currency == coin].quantity.values[0])
             changepos(coin,order,buy=False)
             print(order)
-            
+    for coin in posframe[posframe.position == 0].Currency: 
+        df = gethourlydata(coin)
+        applytechnicals(df)
+        lastrow = df.iloc[-1]
+        if lastrow.FastSMA > lastrow.SlowSMA:
+            order = client.create_order(symbol=coin,
+                                         side='BUY',
+                                      type='MARKET',
+                           quoteOrderQty=investment)
+            print(order)
+            changepos(coin,order, buy=True)
+        else:
+            print(f'Buying condition for {coin} is not fulfilled')
