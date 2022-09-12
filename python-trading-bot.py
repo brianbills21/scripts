@@ -70,3 +70,20 @@ def changepos(curr, order, buy=True):
     if buy:
         posframe.loc[posframe.Currency == curr, 'position'] = 1
         posframe.loc[posframe.Currency == curr, 'quantity'] = float(order['executedQty'])
+    else:
+        posframe.loc[posframe.Currency == curr, 'position'] = 0
+        posframe.loc[posframe.Currency == curr, 'quantity'] = 0
+
+def trader(investment=100):
+    for coin in posframe[posframe.position == 1].currency:
+        df = gethourlydata(coin)
+        applytechnicals(df)
+        lastrow = df.iloc[-1]
+        if lastrow.SlowSMA > lastrow.FastSMA:
+            order = client.create_order(symbol=coin,
+                                        side='SELL',
+                                        type='MARKET',
+        quantity=posframe.loc[posframe.Currency == coin].quantity.values[0])
+            changepos(coin,order,buy=False)
+            print(order)
+            
