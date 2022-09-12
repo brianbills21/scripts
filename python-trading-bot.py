@@ -50,3 +50,23 @@ from binance import Client
 import pandas as pd
 client = Client(binance_key, binance_secret)
 posframe = pd.read_csv('positioncheck')
+
+def gethourlydata(symbol):
+    frame = pd.DataFrame(client.get_historical_klines(symbol, 
+                                                      '1h',
+                                                      '75 hours ago UTC'))
+    frame = frame[[0,4]]
+    frame.columns = ['Time', 'Close']
+    frame.Close = frame.Close.astype(float)
+    frame.Time = pd.to_datetime(frame.Time, unit='ms')
+    return frame 
+temp = gethourlydata('BTCUSDT')
+
+def applytechnicals(df):
+    df['FastSMA'] = df.Close.rolling(5).mean()
+    df['SlowSMA'] = df.Close.rolling(75).mean()
+applytechnicals(temp)
+def changepos(curr, order, buy=True):
+    if buy:
+        posframe.loc[posframe.Currency == curr, 'position'] = 1
+        posframe.loc[posframe.Currency == curr, 'quantity'] = float(order['executedQty'])
