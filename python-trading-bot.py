@@ -66,6 +66,7 @@ def applytechnicals(df):
     df['FastSMA'] = df.Close.rolling(5).mean()
     df['SlowSMA'] = df.Close.rolling(75).mean()
 applytechnicals(temp)
+
 def changepos(curr, order, buy=True):
     if buy:
         posframe.loc[posframe.Currency == curr, 'position'] = 1
@@ -86,6 +87,7 @@ def trader(investment=100):
         quantity=posframe.loc[posframe.Currency == coin].quantity.values[0])
             changepos(coin,order,buy=False)
             print(order)
+    
     for coin in posframe[posframe.position == 0].Currency: 
         df = gethourlydata(coin)
         applytechnicals(df)
