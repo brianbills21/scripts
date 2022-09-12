@@ -102,3 +102,10 @@ def trader(investment=100):
             changepos(coin,order, buy=True)
         else:
             print(f'Buying condition for {coin} is not fulfilled')
+
+while True:
+   try:
+       trader()
+   except:
+       continue
+   
