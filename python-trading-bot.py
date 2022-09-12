@@ -9,6 +9,7 @@ symbols =['BTCUSDT','ETHUSDT','BNBUSDT','XRPUSDT',
   'CAKEUSDT','GALAUSDT','FLOWUSDT','TFUELUSDT','AAVUSDT',
   'ONEUSDT','NEOUSDT','MKEUSDT','QNTUSDT','ENJUSDT',
   'XECUSDT']
+
 import pandas as pd
 posframe=pd.DataFrame(symbols)
 posframe.columns = ['currency']
