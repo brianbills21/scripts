@@ -1,6 +1,7 @@
 ```
 # scripts
- README.md  
+ README.md
+ VWAP_Strategy_01.ipynb
  accept-digital-fingerprint.sh  
  auto-copy-root-rsa-keys.sh     
  auto-copy-rsa-keys.sh  
