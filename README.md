@@ -1,6 +1,7 @@
 ```
 # scripts
- README.md  
+ README.md
+ VWAP_Strategy_01.ipynb
  accept-digital-fingerprint.sh  
  auto-copy-root-rsa-keys.sh     
  auto-copy-rsa-keys.sh  
@@ -20,6 +21,7 @@
  log2html.sh
  mentor-halt-systems.sh   
  monitor-webwasher-proxy-logs.sh
+ python-trading-bot.py
  sample22.sh
  separate-non-cylance-hosts.sh
  top-youtube.py
