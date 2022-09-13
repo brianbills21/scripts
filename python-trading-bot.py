@@ -54,8 +54,8 @@ posframe = pd.read_csv('positioncheck')
 
 def gethourlydata(symbol):
     frame = pd.DataFrame(client.get_historical_klines(symbol, 
-                                                      '1h',
-                                                      '75 hours ago UTC'))
+                                            '1h',
+                             '75 hours ago UTC'))
     frame = frame[[0,4]]
     frame.columns = ['Time', 'Close']
     frame.Close = frame.Close.astype(float)
