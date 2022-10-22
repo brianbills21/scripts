@@ -1,5 +1,5 @@
 #Run script as root
-mkdir -p /opt/jenkins/{jenkins-data,junkins-docker-certs}
+mkdir -p /opt/jenkins/{jenkins-data,jenkins-docker-certs}
 cat <<EOF > /opt/jenkins/Dockerfile
 FROM jenkins/jenkins:2.346.3-jdk11
 USER root
